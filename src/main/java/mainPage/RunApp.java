@@ -21,7 +21,7 @@ public class RunApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainPage/mainPage.fxml"));
-        primaryStage.setTitle("Goods Rental mainPage.Timer");
+        primaryStage.setTitle("Goods Rental Timer");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
