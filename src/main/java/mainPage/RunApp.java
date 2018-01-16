@@ -7,10 +7,16 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import static helperClasses.Helper.timer;
+
 /**
  * Created by Sharikov Pavel on 02.12.2017.
  */
 public class RunApp extends Application {
+
+    //TODO: Прикрутить логгер и запись всех действий в txt файл
+    //TODO: Реализовать метод initConfig() для чтения всех конфигов с пропертей и их инициализации
+    //TODO: Быть может потом создать отдельный клас со всеми полями, и на каждую команду создается экземляр этого класса
 
     private static Long stamp1;
     private static Long stamp2;
@@ -29,10 +35,9 @@ public class RunApp extends Application {
 
     public static void main(String[] args) throws Exception {
         launch(args);
-        Timer tm = new Timer();
-        stamp1 = tm.sendGet();
+        stamp1 = timer.getTimeHHMMSS(timer.getTimeStamp());
         Thread.sleep(61900);
-        stamp2 = tm.sendGet();
+        stamp2 = timer.getTimeHHMMSS(timer.getTimeStamp());
         stamp3 = stamp2 - stamp1;
         System.out.println("Stamp3: " + stamp3);
         System.out.println("Прошло минут: " + (double) stamp3 / 60000);
