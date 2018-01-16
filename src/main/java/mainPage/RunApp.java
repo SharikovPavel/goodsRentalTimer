@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -21,6 +22,8 @@ public class RunApp extends Application {
         primaryStage.setTitle("Goods Rental Timer");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
+        // Устанавливаем иконку приложения
+        primaryStage.getIcons().add(new Image(mainPage.RunApp.class.getResourceAsStream("/images/statistics.png")));
         primaryStage.show();
     }
 
@@ -28,7 +31,7 @@ public class RunApp extends Application {
         launch(args);
         Timer tm = new Timer();
         stamp1 = tm.sendGet();
-        Thread.sleep(30000);
+        Thread.sleep(61900);
         stamp2 = tm.sendGet();
         stamp3 = stamp2 - stamp1;
         System.out.println("Stamp3: " + stamp3);
