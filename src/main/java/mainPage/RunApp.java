@@ -23,6 +23,7 @@ public class RunApp extends Application {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainPage/mainPage.fxml"));
         primaryStage.setTitle("Goods Rental Timer");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
