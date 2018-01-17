@@ -49,6 +49,9 @@ public class CommandsController {
         // Создаем объект команды
         Command team = new Command();
 
+        // Выключаем кнопку Старт таймер
+        startTimerCommand_1.setDisable(true);
+
         // Получаем текущее время, запоминаем его в объект команды
         team.setTimeStampStartTheGame(timer.getTimeStamp());
 
