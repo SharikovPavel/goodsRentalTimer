@@ -5,63 +5,117 @@ package helperClasses;
  **/
 public class Command {
 
-    // Название команы, имя человека
     private String nameCommand;
-    // Название игры в которую играет команда
-    private String nameGameForCommand;
-    // Количество человек в команде
-    private String amountMemberCommand;
-    // Время начала игры
+    private String gameCommand;
+    private String amountPeopleCommand;
     private Long timeStampStartTheGame;
-    // Время окончания игры
     private Long timeStampEndTheGame;
-    // Фиксированный первый час игры
     private boolean fixFirsHourGame;
 
+    /**
+     * Узнать фиксированн ли первый час игры
+     *
+     * @return
+     */
     public boolean isFixFirsHourGame() {
         return fixFirsHourGame;
     }
 
+    /**
+     * Установить фиксированный первый час игры
+     *
+     * @param fixFirsHourGame
+     */
     public void setFixFirsHourGame(boolean fixFirsHourGame) {
         this.fixFirsHourGame = fixFirsHourGame;
     }
 
+    /**
+     * Получить название команы, имя человека
+     *
+     * @return
+     */
     public String getNameCommand() {
         return nameCommand;
     }
 
+    /**
+     * Установить название команы, имя человека
+     *
+     * @param nameCommand
+     */
     public void setNameCommand(String nameCommand) {
         this.nameCommand = nameCommand;
     }
 
-    public String getNameGameForCommand() {
-        return nameGameForCommand;
+    /**
+     * Получить название игры в которую играет команда
+     *
+     * @return
+     */
+    public String getGameCommand() {
+        return gameCommand;
     }
 
-    public void setNameGameForCommand(String nameGameForCommand) {
-        this.nameGameForCommand = nameGameForCommand;
+    /**
+     * Установить название игры в которую играет команда
+     *
+     * @param gameCommand
+     */
+    public void setGameCommand(String gameCommand) {
+        this.gameCommand = gameCommand;
     }
 
-    public String getAmountMemberCommand() {
-        return amountMemberCommand;
+    /**
+     * Получить количество человек в команде
+     *
+     * @return
+     */
+    public String getAmountPeopleCommand() {
+        return amountPeopleCommand;
     }
 
-    public void setAmountMemberCommand(String amountMemberCommand) {
-        this.amountMemberCommand = amountMemberCommand;
+    /**
+     * Установить количество человек в команде
+     *
+     * @param amountPeopleCommand
+     */
+    public void setAmountPeopleCommand(String amountPeopleCommand) {
+        this.amountPeopleCommand = amountPeopleCommand;
     }
 
+    /**
+     * Получить время начала игры
+     *
+     * @return
+     */
     public Long getTimeStampStartTheGame() {
         return timeStampStartTheGame;
     }
 
+    /**
+     * Установить время начала игры
+     *
+     * @param timeStampStartTheGame
+     */
     public void setTimeStampStartTheGame(Long timeStampStartTheGame) {
         this.timeStampStartTheGame = timeStampStartTheGame;
     }
 
+    /**
+     * Получить время окончания игры
+     *
+     * @return
+     */
     public Long getTimeStampEndTheGame() {
         return timeStampEndTheGame;
     }
 
+    /**
+     * Установить время окончания игры
+     *
+     * @param timeStampEndTheGame
+     */
     public void setTimeStampEndTheGame(Long timeStampEndTheGame) {
         this.timeStampEndTheGame = timeStampEndTheGame;
     }

@@ -40,13 +40,14 @@ public class Timer {
             response.append(inputLine);
         }
         in.close();
-        //print result
-        System.out.println(response.toString());
+        System.out.println("Ответ с time100.ru: " + response.toString() + " секунд");
         return Long.decode(response.toString());
     }
 
+    //TODO: Разобраться, может совсем и не надо 2 метода. Может достаточно делать (timeStamp1-timeStamp2)*1000 и делать formattedDate
+
     /**
-     * Получаем время в необходимом нам формате: HH:mm:ss
+     * Получаем время в необходимом нам формате: HH:mm:ss в Long
      *
      * @param responseTime timeStamp получаенный от сервера
      * @return
@@ -56,8 +57,23 @@ public class Timer {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss"); // какой формат нужен, выбераем
         sdf.setTimeZone(TimeZone.getTimeZone("GMT+3")); // если нужно даем таймзон
         String formattedDate = sdf.format(date);
-        System.out.println(formattedDate);
+        System.out.println("Формат даты: " + formattedDate);
         Long timeLong = sdf.getCalendar().getTime().getTime();
+        System.out.println("Милисекунды: " + timeLong);
         return timeLong;
+    }
+
+    /**
+     * Получаем время в необходимом нам формате: HH:mm:ss в String
+     *
+     * @param responseTime timeStamp получаенный от сервера
+     * @return
+     */
+    public String getTimeStringHHMMSS(long responseTime) {
+        Date date = new Date(responseTime * 1000L); // *1000 получаем миллисекунды
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss"); // какой формат нужен, выбераем
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT+3")); // если нужно даем таймзон
+        String formattedDate = sdf.format(date);
+        return formattedDate;
     }
 }

@@ -9,26 +9,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPage.CommandsController">
    <children>
-      <ScrollPane prefHeight="600.0" prefWidth="800.0">
+      <ScrollPane fx:id="scrollPane" prefHeight="600.0" prefWidth="800.0">
          <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2096.0" prefWidth="780.0">
+          <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="2096.0" prefWidth="780.0">
                <children>
-                  <VBox layoutX="-4.0" prefHeight="2012.0" prefWidth="789.0">
+                  <VBox fx:id="vbox" layoutX="-4.0" prefHeight="2012.0" prefWidth="789.0">
                      <children>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_1" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_1" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTimerCommand" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <CheckBox layoutX="16.0" layoutY="120.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="154.0" text="Фикс. за 1-й час" />
-                              <TextField layoutX="14.0" layoutY="85.0" promptText="Количество человек" />
-                              <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
-                              <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
-                              <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
+                              <CheckBox fx:id="fixFirstHourCommand_1" layoutX="16.0" layoutY="120.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="154.0" text="Фикс. за 1-й час" />
+                              <TextField fx:id="amountPeopleCommand_1" layoutX="14.0" layoutY="85.0" promptText="Количество человек" />
+                              <TextField fx:id="startTimeCommand_1" alignment="CENTER" disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
+                              <Button fx:id="updateTimerCommand_1" layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
+                              <TextField fx:id="currentTimeCommand_1" alignment="CENTER" disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
                               <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -39,30 +39,30 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
-                              <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
+                              <Button fx:id="stopTimerCommand_1" layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
+                              <Button fx:id="clearAllFieldCommand_1" layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
                               <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField fx:id="allMinCommand_1" alignment="CENTER" disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
                               <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="488.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField layoutX="14.0" layoutY="51.0" promptText="Название игры" />
-                              <TextField layoutX="14.0" layoutY="18.0" promptText="Имя" />
-                              <TextField alignment="CENTER" cache="true" editable="false" layoutX="604.0" layoutY="61.0" mouseTransparent="true" prefHeight="32.0" prefWidth="151.0" promptText="КОМАНДА №1" text="КОМАНДА №1">
+                              <TextField fx:id="totalCostCommand_1" alignment="CENTER" disable="true" editable="false" layoutX="488.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField fx:id="gameCommand_1" layoutX="14.0" layoutY="51.0" promptText="Название игры" />
+                              <TextField fx:id="nameCommand_1" layoutX="14.0" layoutY="18.0" promptText="Имя" />
+                              <TextField fx:id="command_1" alignment="CENTER" cache="true" editable="false" layoutX="604.0" layoutY="61.0" mouseTransparent="true" prefHeight="32.0" prefWidth="151.0" promptText="КОМАНДА №1" text="КОМАНДА №1">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_2" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -71,9 +71,9 @@
                               </Button>
                               <CheckBox layoutX="16.0" layoutY="120.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="154.0" text="Фикс. за 1-й час" />
                               <TextField layoutX="14.0" layoutY="85.0" promptText="Количество человек" />
-                              <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField alignment="CENTER" disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
-                              <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField alignment="CENTER" disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
                               <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -91,13 +91,13 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField alignment="CENTER" disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
                               <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="488.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField alignment="CENTER" disable="true" editable="false" layoutX="488.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" />
                               <TextField layoutX="14.0" layoutY="51.0" promptText="Название игры" />
                               <TextField layoutX="14.0" layoutY="18.0" promptText="Имя" />
                               <TextField alignment="CENTER" cache="true" editable="false" layoutX="604.0" layoutY="61.0" mouseTransparent="true" prefHeight="32.0" prefWidth="151.0" promptText="КОМАНДА №2" text="КОМАНДА №2">
@@ -107,13 +107,13 @@
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_3" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <CheckBox layoutX="16.0" layoutY="120.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="154.0" text="Фикс. за 1-й час" />
                               <TextField layoutX="14.0" layoutY="85.0" promptText="Количество человек" />
-                              <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField alignment="CENTER" disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
-                              <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField alignment="CENTER" disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
                               <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -131,13 +131,13 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField alignment="CENTER" disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
                               <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="488.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField alignment="CENTER" disable="true" editable="false" layoutX="488.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" />
                               <TextField layoutX="14.0" layoutY="51.0" promptText="Название игры" />
                               <TextField layoutX="14.0" layoutY="18.0" promptText="Имя" />
                               <TextField alignment="CENTER" cache="true" editable="false" layoutX="604.0" layoutY="61.0" mouseTransparent="true" prefHeight="32.0" prefWidth="151.0" promptText="КОМАНДА №3" text="КОМАНДА №3">
@@ -152,7 +152,7 @@
                               </Button>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_4" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -164,25 +164,25 @@
                               <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
                               <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в">
+                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло">
+                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло" text="Прошло">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
                               <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -197,7 +197,7 @@
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_5" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -209,25 +209,25 @@
                               <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
                               <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в">
+                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло">
+                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло" text="Прошло">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
                               <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -242,7 +242,7 @@
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_6" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -254,25 +254,25 @@
                               <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
                               <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в">
+                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло">
+                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло" text="Прошло">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
                               <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -287,7 +287,7 @@
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_7" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -299,25 +299,25 @@
                               <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
                               <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в">
+                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло">
+                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло" text="Прошло">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
                               <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -332,7 +332,7 @@
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_8" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -344,25 +344,25 @@
                               <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
                               <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в">
+                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло">
+                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло" text="Прошло">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
                               <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -377,7 +377,7 @@
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_9" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -389,25 +389,25 @@
                               <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
                               <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в">
+                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло">
+                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло" text="Прошло">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
                               <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -422,7 +422,7 @@
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_10" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -434,25 +434,25 @@
                               <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
                               <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в">
+                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло">
+                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло" text="Прошло">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
                               <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -467,7 +467,7 @@
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_11" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -479,25 +479,25 @@
                               <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
                               <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в">
+                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло">
+                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло" text="Прошло">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
                               <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -512,7 +512,7 @@
                               </TextField>
                            </children>
                         </Pane>
-                        <Pane prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
+                        <Pane fx:id="pane_12" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
                               <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
@@ -524,25 +524,25 @@
                               <TextField disable="true" editable="false" layoutX="292.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" />
                               <Button layoutX="216.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Обновить" />
                               <TextField disable="true" editable="false" layoutX="293.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в">
+                              <TextField disable="true" editable="false" layoutX="215.0" layoutY="52.0" prefHeight="25.0" prefWidth="75.0" promptText="Начало в" text="Начало в">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
-                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло">
+                              <TextField disable="true" editable="false" layoutX="216.0" layoutY="120.0" prefHeight="25.0" prefWidth="75.0" promptText="Прошло" text="Прошло">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Стоп таймер" />
                               <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Очистить все поля" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" promptText="Всего мин" text="Всего мин">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </TextField>
                               <TextField disable="true" editable="false" layoutX="488.0" layoutY="53.0" prefHeight="25.0" prefWidth="75.0" />
-                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб">
+                              <TextField disable="true" editable="false" layoutX="411.0" layoutY="86.0" prefHeight="25.0" prefWidth="75.0" promptText="Итого руб" text="Итого руб">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>

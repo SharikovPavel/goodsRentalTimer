@@ -1,10 +1,7 @@
 package mainPage;
 
+import helperClasses.Helper;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import static helperClasses.Helper.timer;
@@ -24,22 +21,20 @@ public class RunApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainPage/mainPage.fxml"));
-        primaryStage.setTitle("Goods Rental Timer");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.setResizable(false);
-        // Устанавливаем иконку приложения
-        primaryStage.getIcons().add(new Image(mainPage.RunApp.class.getResourceAsStream("/images/statistics.png")));
-        primaryStage.show();
+        Helper.class.newInstance().initScene(primaryStage);
     }
 
     public static void main(String[] args) throws Exception {
         launch(args);
+
+        // Тест метода работы с временем timeStamp
         stamp1 = timer.getTimeHHMMSS(timer.getTimeStamp());
+        System.out.println("Stamp1: " + stamp1 + " милисекунд");
         Thread.sleep(61900);
         stamp2 = timer.getTimeHHMMSS(timer.getTimeStamp());
+        System.out.println("Stamp2: " + stamp2 + " милисекунд");
         stamp3 = stamp2 - stamp1;
-        System.out.println("Stamp3: " + stamp3);
+        System.out.println("Stamp3: " + stamp3 + " милисекунд");
         System.out.println("Прошло минут: " + (double) stamp3 / 60000);
     }
 }
