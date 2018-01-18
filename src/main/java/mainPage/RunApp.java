@@ -11,9 +11,10 @@ import static helperClasses.Helper.timer;
  */
 public class RunApp extends Application {
 
+    //http://www.cyberforum.ru/java-gui/thread1394821.html много одинаковых кнопок в хэшмапу или массив и слушать, какая из них была нажата (listener)
+
     //TODO: Прикрутить логгер и запись всех действий в txt файл
     //TODO: Реализовать метод initConfig() для чтения всех конфигов с пропертей и их инициализации
-    //TODO: Быть может потом создать отдельный клас со всеми полями, и на каждую команду создается экземляр этого класса
 
     private static Long stamp1;
     private static Long stamp2;
