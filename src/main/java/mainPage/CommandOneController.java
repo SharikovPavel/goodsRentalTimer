@@ -74,6 +74,7 @@ public class CommandOneController {
 
     @FXML
     public void updateTimerCommand() throws Exception {
+        // Обрубать до 2-х цифр после запятой, а лучше, реализовать округление, меньше 5, больше 5
         if (!startTimeCommand_1.isDisabled()) {
             return;
         }
