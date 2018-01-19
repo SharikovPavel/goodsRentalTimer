@@ -105,12 +105,11 @@ public class CommandOneController {
     @FXML
     public void stopTimerCommand() throws Exception {
         team.setTimeStampEndTheGame(timer.getTimeStamp());
-        Long allMinuteCommand = timer.getTimeHHMMSS(timer.getTimeHHMMSS(team.getTimeStampEndTheGame())
-                - timer.getTimeHHMMSS(team.getTimeStampStartTheGame()));
-        allMinuteCommand_1.setText(String.valueOf((double) allMinuteCommand / MINUTES));
+        Long allMinuteCommand = timer.getTimeHHMMSS(team.getTimeStampEndTheGame() - team.getTimeStampStartTheGame()) / MINUTES;
+        allMinuteCommand_1.setText(String.valueOf((double) allMinuteCommand));
 
         // Реализовать проверку на фикс час
-        Double totalCostCommand = Integer.valueOf(team.getAmountPeopleCommand()) * (Double.valueOf(Helper.props.getProperty("pricePerMinute"))
+        Double totalCostCommand = Double.valueOf(team.getAmountPeopleCommand()) * (Double.valueOf(Helper.props.getProperty("pricePerMinute"))
         * allMinuteCommand);
         totalCostCommand_1.setText(String.valueOf(totalCostCommand));
         team.setTotalCostCommand(totalCostCommand);
