@@ -26,6 +26,7 @@ public class RunApp extends Application {
     }
 
     public static void main(String[] args) throws Exception {
+        Helper.initProps();
         launch(args);
 
         // Тест метода работы с временем timeStamp

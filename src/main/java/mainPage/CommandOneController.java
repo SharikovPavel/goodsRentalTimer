@@ -1,9 +1,13 @@
 package mainPage;
 
 import helperClasses.Command;
+import helperClasses.Helper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+
+import static helperClasses.Helper.props;
 import static helperClasses.Helper.timer;
 
 /**
@@ -18,7 +22,7 @@ import static helperClasses.Helper.timer;
  * updateTimerCommand_1 - Прошедшее время аренды игры на текущий момент. Кнопка Обновить
  * currentTimeCommand_1 - Прошло времени игры
  * stopTimerCommand_1 - Кнопка Стоп таймер
- * allMinCommand_1 - полное количество прошедших минут с начала аренды (после стоп таймера)
+ * allMinuteCommand_1 - полное количество прошедших минут с начала аренды (после стоп таймера)
  * totalCostCommand_1 - Итоговая стоимость аренды игры
  * clearAllFieldCommand_1 - Очистить все поля, связанные с данной командой
  * command_1 - Номер команды
@@ -29,7 +33,7 @@ public class CommandOneController {
 
     private final static long MINUTES = 60000;
     private final static String STYLE_BORDER_RED = "-fx-border-color: red; -fx-border-radius: 5;";
-    private final static String STYLE_BORDER_BASE = "-fx-border-color: base;";
+    private final static String STYLE_BORDER_BASE = "-fx-border: base;";
 
     @FXML
     private Button startTimerCommand_1;
@@ -50,6 +54,21 @@ public class CommandOneController {
     private TextField currentTimeCommand_1;
 
     @FXML
+    private CheckBox fixFirstHourCommand_1;
+
+    @FXML
+    private TextField allMinuteCommand_1;
+
+    @FXML
+    private TextField totalCostCommand_1;
+
+    @FXML
+    private Button stopTimerCommand_1;
+
+    @FXML
+    private Button updateTimerCommand_1;
+
+    @FXML
     public void startTimerCommand() throws Exception {
         if (!checkTextFieldOfNullable()) {
             return;
@@ -66,6 +85,7 @@ public class CommandOneController {
         nameCommand_1.setEditable(false);
         gameCommand_1.setEditable(false);
         amountPeopleCommand_1.setEditable(false);
+        fixFirstHourCommand_1.setDisable(true);
         // Запоминаем в объект команды данные с введенных полей
         team.setNameCommand(nameCommand_1.getText());
         team.setGameCommand(gameCommand_1.getText());
@@ -80,6 +100,29 @@ public class CommandOneController {
         }
         Long currentTime = timer.getTimeHHMMSS(timer.getTimeStamp()) - timer.getTimeHHMMSS(team.getTimeStampStartTheGame());
         currentTimeCommand_1.setText(String.valueOf((double) currentTime / MINUTES));
+    }
+
+    @FXML
+    public void stopTimerCommand() throws Exception {
+        team.setTimeStampEndTheGame(timer.getTimeStamp());
+        Long allMinuteCommand = timer.getTimeHHMMSS(timer.getTimeHHMMSS(team.getTimeStampEndTheGame())
+                - timer.getTimeHHMMSS(team.getTimeStampStartTheGame()));
+        allMinuteCommand_1.setText(String.valueOf((double) allMinuteCommand / MINUTES));
+
+        // Реализовать проверку на фикс час
+        Double totalCostCommand = Integer.valueOf(team.getAmountPeopleCommand()) * (Double.valueOf(Helper.props.getProperty("pricePerMinute"))
+        * allMinuteCommand);
+        totalCostCommand_1.setText(String.valueOf(totalCostCommand));
+        team.setTotalCostCommand(totalCostCommand);
+
+        stopTimerCommand_1.setDisable(true);
+        updateTimerCommand_1.setDisable(true);
+        Helper.fillCommandInfo(team.getNameCommand() + "_" + team.getGameCommand(), team);
+    }
+
+    @FXML
+    public void clearAllFieldCommand() {
+
     }
 
     /**
@@ -117,7 +160,6 @@ public class CommandOneController {
             amountPeopleCommand_1.setStyle(STYLE_BORDER_RED);
             cnt++;
         }
-
         return (cnt > 0) ? false : true;
     }
 }

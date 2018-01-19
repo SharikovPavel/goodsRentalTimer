@@ -6,13 +6,39 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
+import java.util.Properties;
 
 /**
  * Created by Sharikov Pavel on 04.12.2017.
  */
 public class Helper {
+
+    public static Properties props;
+    private static InputStreamReader isr;
+    private static final String PATH_APP_PROPERTIES = System.getProperty("user.dir")
+            + "/src/main/resources/config.properties";
+
+    /**
+     * Инициализируем конфиг-файлы приложения
+     *
+     * @throws Exception
+     */
+    public static void initProps() throws Exception {
+        props = new Properties();
+        try {
+            isr = new InputStreamReader(new FileInputStream(new File(PATH_APP_PROPERTIES)),
+                    "UTF8");
+            props.load(isr);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new Exception("Ошибка. Не удалось прочитать файл конфигураций");
+        }
+    }
 
     /**
      * Инициализируем сцену и все что с ней связанно
@@ -41,5 +67,15 @@ public class Helper {
      * String - имя команды
      * Command - объект класса Command содержащий всю информацию, в том числе о начале аренды и т.д.
      */
-    public static LinkedHashMap<String, Command> commandInfo = new LinkedHashMap<String, Command>();
+    private static LinkedHashMap<String, Command> commandInfo = new LinkedHashMap<String, Command>();
+
+    /**
+     * Метод запоминающщий все информацию по аренде игры определенной команды в hashMap для дальнейшего использования в отчете
+     *
+     * @param nameCommand     имя команды
+     * @param allFieldCommand объект класса Command хранящий всю инфу о команде
+     */
+    public static void fillCommandInfo(String nameCommand, Command allFieldCommand) {
+        commandInfo.put(nameCommand, allFieldCommand);
+    }
 }

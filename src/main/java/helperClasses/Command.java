@@ -10,7 +10,26 @@ public class Command {
     private String amountPeopleCommand;
     private Long timeStampStartTheGame;
     private Long timeStampEndTheGame;
+    private Double totalCostCommand;
     private boolean fixFirsHourGame;
+
+    /**
+     * Получить итоговую сумму команды за аренду
+     *
+     * @return
+     */
+    public Double getTotalCostCommand() {
+        return totalCostCommand;
+    }
+
+    /**
+     * Установить итоговую сумму аренды игры командой в рублях
+     *
+     * @param totalCostCommand
+     */
+    public void setTotalCostCommand(Double totalCostCommand) {
+        this.totalCostCommand = totalCostCommand;
+    }
 
     /**
      * Узнать фиксированн ли первый час игры
