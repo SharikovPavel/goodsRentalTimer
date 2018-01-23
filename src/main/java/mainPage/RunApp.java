@@ -14,7 +14,6 @@ public class RunApp extends Application {
     //http://www.cyberforum.ru/java-gui/thread1394821.html много одинаковых кнопок в хэшмапу или массив и слушать, какая из них была нажата (listener)
 
     //TODO: Прикрутить логгер и запись всех действий в txt файл
-    //TODO: Реализовать метод initConfig() для чтения всех конфигов с пропертей и их инициализации
 
     private static Long stamp1;
     private static Long stamp2;

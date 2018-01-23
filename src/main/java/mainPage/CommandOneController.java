@@ -7,66 +7,80 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
-import static helperClasses.Helper.props;
 import static helperClasses.Helper.timer;
 
 /**
  * @author p.sharikov
- * <p>
- * nameCommand_1 - Имя
- * gameCommand_1 - Название игры
- * amountPeopleCommand_1 - Количество человек
- * fixFirstHourCommand_1 - Фиксированный первый час игры
- * startTimerCommand_1 - Кнопка Старт таймер
- * startTimeCommand_1 - Начало в (время начала игры)
- * updateTimerCommand_1 - Прошедшее время аренды игры на текущий момент. Кнопка Обновить
- * currentTimeCommand_1 - Прошло времени игры
- * stopTimerCommand_1 - Кнопка Стоп таймер
- * allMinuteCommand_1 - полное количество прошедших минут с начала аренды (после стоп таймера)
- * totalCostCommand_1 - Итоговая стоимость аренды игры
- * clearAllFieldCommand_1 - Очистить все поля, связанные с данной командой
- * command_1 - Номер команды
  **/
 public class CommandOneController {
 
     Command team;
 
     private final static long MINUTES = 60000;
+    private final static String EMPTY_FIELD = "";
     private final static String STYLE_BORDER_RED = "-fx-border-color: red; -fx-border-radius: 5;";
     private final static String STYLE_BORDER_BASE = "-fx-border: base;";
 
-    @FXML
-    private Button startTimerCommand_1;
+    /**
+     * Кнопка Старт таймер
+     */
+    @FXML private Button startTimerCommand_1;
 
     @FXML
+    /**
+     * Имя команды
+     */
     private TextField nameCommand_1;
 
-    @FXML
-    private TextField gameCommand_1;
+    /**
+     * Название игры
+     */
+    @FXML private TextField gameCommand_1;
 
-    @FXML
-    private TextField amountPeopleCommand_1;
+    /**
+     * Количество человек
+     */
+    @FXML private TextField amountPeopleCommand_1;
 
-    @FXML
-    private TextField startTimeCommand_1;
+    /**
+     * Поле "Начало в" (время начала игры)
+     */
+    @FXML private TextField startTimeCommand_1;
 
-    @FXML
-    private TextField currentTimeCommand_1;
+    /**
+     * Прошло времени игры (текстовое поле)
+     */
+    @FXML private TextField currentTimeCommand_1;
 
-    @FXML
-    private CheckBox fixFirstHourCommand_1;
+    /**
+     * Фиксированный первый час игры
+     */
+    @FXML private CheckBox fixFirstHourCommand_1;
 
-    @FXML
-    private TextField allMinuteCommand_1;
+    /**
+     * Полное количество прошедших минут с начала аренды (после стоп таймера)
+     */
+    @FXML private TextField allMinuteCommand_1;
 
-    @FXML
-    private TextField totalCostCommand_1;
+    /**
+     * Итоговая стоимость аренды игры
+     */
+    @FXML private TextField totalCostCommand_1;
 
-    @FXML
-    private Button stopTimerCommand_1;
+    /**
+     * Кнопка стоп таймер
+     */
+    @FXML private Button stopTimerCommand_1;
 
-    @FXML
-    private Button updateTimerCommand_1;
+    /**
+     * Прошедшее время аренды игры на текущий момент. Кнопка Обновить
+     */
+    @FXML private Button updateTimerCommand_1;
+
+    /**
+     * Очистить все поля, связанные с данной командой
+     */
+    @FXML private Button clearAllFieldCommand_1;
 
     @FXML
     public void startTimerCommand() throws Exception {
@@ -81,11 +95,12 @@ public class CommandOneController {
         team.setTimeStampStartTheGame(timer.getTimeStamp());
         // Показываем время начала игры в соответствующем поле
         startTimeCommand_1.setText(timer.getTimeStringHHMMSS(team.getTimeStampStartTheGame()));
-        // Делаем поля ввода неактивными
+        // Делаем поля ввода и кнопки неактивными
         nameCommand_1.setEditable(false);
         gameCommand_1.setEditable(false);
         amountPeopleCommand_1.setEditable(false);
         fixFirstHourCommand_1.setDisable(true);
+        clearAllFieldCommand_1.setDisable(true);
         // Запоминаем в объект команды данные с введенных полей
         team.setNameCommand(nameCommand_1.getText());
         team.setGameCommand(gameCommand_1.getText());
@@ -108,7 +123,7 @@ public class CommandOneController {
         Long allMinuteCommand = timer.getTimeHHMMSS(team.getTimeStampEndTheGame() - team.getTimeStampStartTheGame()) / MINUTES;
         allMinuteCommand_1.setText(String.valueOf((double) allMinuteCommand));
 
-        // Реализовать проверку на фикс час
+        // Реализовать проверку на фикс час и добавить округление
         Double totalCostCommand = Double.valueOf(team.getAmountPeopleCommand()) * (Double.valueOf(Helper.props.getProperty("pricePerMinute"))
         * allMinuteCommand);
         totalCostCommand_1.setText(String.valueOf(totalCostCommand));
@@ -116,12 +131,31 @@ public class CommandOneController {
 
         stopTimerCommand_1.setDisable(true);
         updateTimerCommand_1.setDisable(true);
+        clearAllFieldCommand_1.setDisable(false);
         Helper.fillCommandInfo(team.getNameCommand() + "_" + team.getGameCommand(), team);
     }
 
     @FXML
     public void clearAllFieldCommand() {
-
+        //Чистим все поля
+        startTimeCommand_1.setText(EMPTY_FIELD);
+        nameCommand_1.setText(EMPTY_FIELD);
+        gameCommand_1.setText(EMPTY_FIELD);
+        amountPeopleCommand_1.setText(EMPTY_FIELD);
+        allMinuteCommand_1.setText(EMPTY_FIELD);
+        totalCostCommand_1.setText(EMPTY_FIELD);
+        currentTimeCommand_1.setText(EMPTY_FIELD);
+        //Включаем все кнопки и поля
+        nameCommand_1.setEditable(true);
+        gameCommand_1.setEditable(true);
+        amountPeopleCommand_1.setEditable(true);
+        fixFirstHourCommand_1.setDisable(false);
+        updateTimerCommand_1.setDisable(false);
+        fixFirstHourCommand_1.setSelected(false);
+        startTimerCommand_1.setDisable(false);
+        stopTimerCommand_1.setDisable(false);
+        //Чистим объект класса
+        team = null;
     }
 
     /**
