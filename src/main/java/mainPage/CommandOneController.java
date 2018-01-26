@@ -26,11 +26,10 @@ public class CommandOneController {
      */
     @FXML private Button startTimerCommand_1;
 
-    @FXML
     /**
      * Имя команды
      */
-    private TextField nameCommand_1;
+    @FXML private TextField nameCommand_1;
 
     /**
      * Название игры
@@ -109,12 +108,11 @@ public class CommandOneController {
 
     @FXML
     public void updateTimerCommand() throws Exception {
-        // Обрубать до 2-х цифр после запятой, а лучше, реализовать округление, меньше 5, больше 5
-        if (!startTimeCommand_1.isDisabled()) {
+        if (!startTimerCommand_1.isDisabled()) {
             return;
         }
         Long currentTime = timer.getTimeHHMMSS(timer.getTimeStamp()) - timer.getTimeHHMMSS(team.getTimeStampStartTheGame());
-        currentTimeCommand_1.setText(String.valueOf((double) currentTime / MINUTES));
+        currentTimeCommand_1.setText(roundingNumber((double) currentTime / MINUTES));
     }
 
     @FXML
@@ -137,6 +135,16 @@ public class CommandOneController {
 
     @FXML
     public void clearAllFieldCommand() {
+        clearField();
+        onAllFieldAndButton();
+        //Чистим объект класса
+        team = null;
+    }
+
+    /**
+     * Очистка всех текстовых полей на форме
+     */
+    private void clearField() {
         //Чистим все поля
         startTimeCommand_1.setText(EMPTY_FIELD);
         nameCommand_1.setText(EMPTY_FIELD);
@@ -145,6 +153,12 @@ public class CommandOneController {
         allMinuteCommand_1.setText(EMPTY_FIELD);
         totalCostCommand_1.setText(EMPTY_FIELD);
         currentTimeCommand_1.setText(EMPTY_FIELD);
+    }
+
+    /**
+     * Включение всех кнопок и полей
+     */
+    private void onAllFieldAndButton() {
         //Включаем все кнопки и поля
         nameCommand_1.setEditable(true);
         gameCommand_1.setEditable(true);
@@ -154,8 +168,6 @@ public class CommandOneController {
         fixFirstHourCommand_1.setSelected(false);
         startTimerCommand_1.setDisable(false);
         stopTimerCommand_1.setDisable(false);
-        //Чистим объект класса
-        team = null;
     }
 
     /**
@@ -194,5 +206,20 @@ public class CommandOneController {
             cnt++;
         }
         return (cnt > 0) ? false : true;
+    }
+
+    private String roundingNumber(Double number) {
+        Double numberMinutes = Double.valueOf(number.toString().split("\\.")[0]);
+        String stringNumberAfterDot = number.toString().split("\\.")[1];
+            String stringNumberAfterDotLength = stringNumberAfterDot.substring(0,2);
+            if (Double.valueOf(stringNumberAfterDotLength) > 50) {
+                System.out.println("Кол-во минут прошло: " + number);
+                System.out.println("Кол-во минут записано в поле: " + String.valueOf(++numberMinutes));
+                return String.valueOf(++numberMinutes);
+            } else {
+                System.out.println("Кол-во минут прошло: " + number);
+                System.out.println("Кол-во минут записано в поле: " + String.valueOf(numberMinutes));
+                return String.valueOf(numberMinutes);
+            }
     }
 }

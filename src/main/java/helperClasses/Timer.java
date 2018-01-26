@@ -44,8 +44,6 @@ public class Timer {
         return Long.decode(response.toString());
     }
 
-    //TODO: Разобраться, может совсем и не надо 2 метода. Может достаточно делать (timeStamp1-timeStamp2)*1000 и делать formattedDate
-
     /**
      * Получаем время в необходимом нам формате: HH:mm:ss в Long
      *
