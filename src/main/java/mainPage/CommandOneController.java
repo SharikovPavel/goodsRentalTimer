@@ -14,7 +14,7 @@ import static helperClasses.Helper.timer;
  **/
 public class CommandOneController extends CommandTwoController{
 
-    Command team;
+//    Command team;
 
     private final static long MINUTES = 60000;
     private final static String EMPTY_FIELD = "";
@@ -81,30 +81,30 @@ public class CommandOneController extends CommandTwoController{
      */
     @FXML private Button clearAllFieldCommand_1;
 
-    @FXML
-    public void startTimerCommand() throws Exception {
-        if (!checkTextFieldOfNullable()) {
-            return;
-        }
-        // Создаем объект команды
-        team = new Command();
-        // Выключаем кнопку Старт таймер
-        startTimerCommand_1.setDisable(true);
-        // Получаем текущее время, запоминаем его в объект команды
-        team.setTimeStampStartTheGame(timer.getTimeStamp());
-        // Показываем время начала игры в соответствующем поле
-        startTimeCommand_1.setText(timer.getTimeStringHHMMSS(team.getTimeStampStartTheGame()));
-        // Делаем поля ввода и кнопки неактивными
-        nameCommand_1.setEditable(false);
-        gameCommand_1.setEditable(false);
-        amountPeopleCommand_1.setEditable(false);
-        fixFirstHourCommand_1.setDisable(true);
-        clearAllFieldCommand_1.setDisable(true);
-        // Запоминаем в объект команды данные с введенных полей
-        team.setNameCommand(nameCommand_1.getText());
-        team.setGameCommand(gameCommand_1.getText());
-        team.setAmountPeopleCommand(amountPeopleCommand_1.getText());
-    }
+//    @FXML
+//    public void startTimerCommand() throws Exception {
+//        if (!checkTextFieldOfNullable()) {
+//            return;
+//        }
+//        // Создаем объект команды
+//        team = new Command();
+//        // Выключаем кнопку Старт таймер
+//        startTimerCommand_1.setDisable(true);
+//        // Получаем текущее время, запоминаем его в объект команды
+//        team.setTimeStampStartTheGame(timer.getTimeStamp());
+//        // Показываем время начала игры в соответствующем поле
+//        startTimeCommand_1.setText(timer.getTimeStringHHMMSS(team.getTimeStampStartTheGame()));
+//        // Делаем поля ввода и кнопки неактивными
+//        nameCommand_1.setEditable(false);
+//        gameCommand_1.setEditable(false);
+//        amountPeopleCommand_1.setEditable(false);
+//        fixFirstHourCommand_1.setDisable(true);
+//        clearAllFieldCommand_1.setDisable(true);
+//        // Запоминаем в объект команды данные с введенных полей
+//        team.setNameCommand(nameCommand_1.getText());
+//        team.setGameCommand(gameCommand_1.getText());
+//        team.setAmountPeopleCommand(amountPeopleCommand_1.getText());
+//    }
 
     @FXML
     public void updateTimerCommand() throws Exception {

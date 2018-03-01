@@ -2,13 +2,16 @@ package mainPage;
 
 import helperClasses.Command;
 import helperClasses.Helper;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static helperClasses.Helper.timer;
@@ -20,12 +23,26 @@ public class CommandTwoController {
 
     Command team;
 
+    /**
+     * Листы для хранения всех полей и кнопок, для быстрого доступа к ним
+     */
+    List<TextField> fieldNameCommand;
+    List<TextField> fieldGameCommand;
+    List<TextField> fieldAmountPeopleCommand;
+    List<CheckBox> checkBoxFixFirstHourCommand;
+    List<TextField> fieldStartTimeCommand;
+    List<Button> buttonStartTimeCommand;
+    List<TextField> buttonUpdateTimerCommand;
+    List<TextField> buttonCurrentTimeCommand;
+    List<TextField> buttonStopTimerCommand;
+    List<TextField> fieldAllMinuteCommand;
+    List<TextField> fieldTotalCostCommand;
+    List<Button> buttonClearAllFieldCommand;
+
     private final static long MINUTES = 60000;
     private final static String EMPTY_FIELD = "";
     private final static String STYLE_BORDER_RED = "-fx-border-color: red; -fx-border-radius: 5;";
     private final static String STYLE_BORDER_BASE = "-fx-border: base;";
-
-    List<Button> buttonsStart = new ArrayList<>();
 
     /**
      * Кнопка Старт таймер
@@ -110,62 +127,207 @@ public class CommandTwoController {
     /**
      * Прошло времени игры (текстовое поле)
      */
+    @FXML private TextField currentTimeCommand_1;
     @FXML private TextField currentTimeCommand_2;
+    @FXML private TextField currentTimeCommand_3;
+    @FXML private TextField currentTimeCommand_4;
+    @FXML private TextField currentTimeCommand_5;
+    @FXML private TextField currentTimeCommand_6;
+    @FXML private TextField currentTimeCommand_7;
+    @FXML private TextField currentTimeCommand_8;
+    @FXML private TextField currentTimeCommand_9;
+    @FXML private TextField currentTimeCommand_10;
+    @FXML private TextField currentTimeCommand_11;
+    @FXML private TextField currentTimeCommand_12;
 
     /**
      * Фиксированный первый час игры
      */
+    @FXML private CheckBox fixFirstHourCommand_1;
     @FXML private CheckBox fixFirstHourCommand_2;
+    @FXML private CheckBox fixFirstHourCommand_3;
+    @FXML private CheckBox fixFirstHourCommand_4;
+    @FXML private CheckBox fixFirstHourCommand_5;
+    @FXML private CheckBox fixFirstHourCommand_6;
+    @FXML private CheckBox fixFirstHourCommand_7;
+    @FXML private CheckBox fixFirstHourCommand_8;
+    @FXML private CheckBox fixFirstHourCommand_9;
+    @FXML private CheckBox fixFirstHourCommand_10;
+    @FXML private CheckBox fixFirstHourCommand_11;
+    @FXML private CheckBox fixFirstHourCommand_12;
 
     /**
      * Полное количество прошедших минут с начала аренды (после стоп таймера)
      */
+    @FXML private TextField allMinuteCommand_1;
     @FXML private TextField allMinuteCommand_2;
+    @FXML private TextField allMinuteCommand_3;
+    @FXML private TextField allMinuteCommand_4;
+    @FXML private TextField allMinuteCommand_5;
+    @FXML private TextField allMinuteCommand_6;
+    @FXML private TextField allMinuteCommand_7;
+    @FXML private TextField allMinuteCommand_8;
+    @FXML private TextField allMinuteCommand_9;
+    @FXML private TextField allMinuteCommand_10;
+    @FXML private TextField allMinuteCommand_11;
+    @FXML private TextField allMinuteCommand_12;
 
     /**
      * Итоговая стоимость аренды игры
      */
+    @FXML private TextField totalCostCommand_1;
     @FXML private TextField totalCostCommand_2;
+    @FXML private TextField totalCostCommand_3;
+    @FXML private TextField totalCostCommand_4;
+    @FXML private TextField totalCostCommand_5;
+    @FXML private TextField totalCostCommand_6;
+    @FXML private TextField totalCostCommand_7;
+    @FXML private TextField totalCostCommand_8;
+    @FXML private TextField totalCostCommand_9;
+    @FXML private TextField totalCostCommand_10;
+    @FXML private TextField totalCostCommand_11;
+    @FXML private TextField totalCostCommand_12;
 
     /**
      * Кнопка стоп таймер
      */
+    @FXML private Button stopTimerCommand_1;
     @FXML private Button stopTimerCommand_2;
+    @FXML private Button stopTimerCommand_3;
+    @FXML private Button stopTimerCommand_4;
+    @FXML private Button stopTimerCommand_5;
+    @FXML private Button stopTimerCommand_6;
+    @FXML private Button stopTimerCommand_7;
+    @FXML private Button stopTimerCommand_8;
+    @FXML private Button stopTimerCommand_9;
+    @FXML private Button stopTimerCommand_10;
+    @FXML private Button stopTimerCommand_11;
+    @FXML private Button stopTimerCommand_12;
 
     /**
      * Прошедшее время аренды игры на текущий момент. Кнопка Обновить
      */
+    @FXML private Button updateTimerCommand_1;
     @FXML private Button updateTimerCommand_2;
+    @FXML private Button updateTimerCommand_3;
+    @FXML private Button updateTimerCommand_4;
+    @FXML private Button updateTimerCommand_5;
+    @FXML private Button updateTimerCommand_6;
+    @FXML private Button updateTimerCommand_7;
+    @FXML private Button updateTimerCommand_8;
+    @FXML private Button updateTimerCommand_9;
+    @FXML private Button updateTimerCommand_10;
+    @FXML private Button updateTimerCommand_11;
+    @FXML private Button updateTimerCommand_12;
 
     /**
      * Очистить все поля, связанные с данной командой
      */
+    @FXML private Button clearAllFieldCommand_1;
     @FXML private Button clearAllFieldCommand_2;
+    @FXML private Button clearAllFieldCommand_3;
+    @FXML private Button clearAllFieldCommand_4;
+    @FXML private Button clearAllFieldCommand_5;
+    @FXML private Button clearAllFieldCommand_6;
+    @FXML private Button clearAllFieldCommand_7;
+    @FXML private Button clearAllFieldCommand_8;
+    @FXML private Button clearAllFieldCommand_9;
+    @FXML private Button clearAllFieldCommand_10;
+    @FXML private Button clearAllFieldCommand_11;
+    @FXML private Button clearAllFieldCommand_12;
 
-    @FXML
-    public void startTimerCommand() throws Exception {
-        if (!checkTextFieldOfNullable()) {
-            return;
+    /**
+     * Слушатель действий (событий) мыши, дефолтный. Предназначен для кнопки "Старт таймер"
+     */
+    final EventHandler<javafx.scene.input.MouseEvent> startTimerButtonEvent = new EventHandler<javafx.scene.input.MouseEvent>(){
+        @Override
+        public void handle(javafx.scene.input.MouseEvent event) {
+            // Записываем кнопки и поля в листы
+            fieldAndButtonToList();
+
+            // Определяем связанные кнопки, соответствующие нажатой в данный момент
+            int numberButton = Integer.valueOf(event.getSource().toString().substring(0, event.getSource().toString().indexOf(",")).split("_")[1]) - 1;
+            TextField nameCommand = fieldNameCommand.get(numberButton);
+            TextField gameCommand = fieldGameCommand.get(numberButton);
+            TextField amountPeopleCommand = fieldAmountPeopleCommand.get(numberButton);
+            TextField startTimeCommand = fieldStartTimeCommand.get(numberButton);
+            Button startTimerCommand = buttonStartTimeCommand.get(numberButton);
+            CheckBox fixFirstHourCommand = checkBoxFixFirstHourCommand.get(numberButton);
+            Button clearAllFieldCommand = buttonClearAllFieldCommand.get(numberButton);
+
+            // Проверяем, что поля ввода заполнены верно
+            try {
+                if (!checkTextFieldOfNullable(nameCommand, gameCommand, amountPeopleCommand)) {
+                    return;
+                }
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+
+            // Создаем объект команды
+            team = new Command();
+
+            // Выключаем кнопку Старт таймер
+            startTimerCommand.setDisable(true);
+
+            // Получаем текущее время, запоминаем его в объект команды
+            try {
+                team.setTimeStampStartTheGame(timer.getTimeStamp());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // Показываем время начала игры в соответствующем поле
+            startTimeCommand.setText(timer.getTimeStringHHMMSS(team.getTimeStampStartTheGame()));
+
+            // Делаем поля ввода и кнопки неактивными
+            nameCommand.setEditable(false);
+            gameCommand.setEditable(false);
+            amountPeopleCommand.setEditable(false);
+            fixFirstHourCommand.setDisable(true);
+            clearAllFieldCommand.setDisable(true);
+
+            // Запоминаем в объект команды данные с введенных полей
+            team.setNameCommand(nameCommand.getText());
+            team.setGameCommand(gameCommand.getText());
+            team.setAmountPeopleCommand(amountPeopleCommand.getText());
         }
-        // Создаем объект команды
-        team = new Command();
-        // Выключаем кнопку Старт таймер
-        startTimerCommand_2.setDisable(true);
-        // Получаем текущее время, запоминаем его в объект команды
-        team.setTimeStampStartTheGame(timer.getTimeStamp());
-        // Показываем время начала игры в соответствующем поле
-        startTimeCommand_2.setText(timer.getTimeStringHHMMSS(team.getTimeStampStartTheGame()));
-        // Делаем поля ввода и кнопки неактивными
-        nameCommand_2.setEditable(false);
-        gameCommand_2.setEditable(false);
-        amountPeopleCommand_2.setEditable(false);
-        fixFirstHourCommand_2.setDisable(true);
-        clearAllFieldCommand_2.setDisable(true);
-        // Запоминаем в объект команды данные с введенных полей
-        team.setNameCommand(nameCommand_2.getText());
-        team.setGameCommand(gameCommand_2.getText());
-        team.setAmountPeopleCommand(amountPeopleCommand_2.getText());
+    };
+
+    /**
+     * Метод который является активным для всех кнопок одинакового действия.
+     * На каждую кнопку навешивается дефолтный слушатель событий, реагирующий на клик (видно в данном методе)
+     */
+    @FXML
+    public void startTimerCommand() {
+        startTimerCommand_1.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_2.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
     }
+
+//    @FXML
+//    public void startTimerCommand() throws Exception {
+//        if (!checkTextFieldOfNullable()) {
+//            return;
+//        }
+//        // Создаем объект команды
+//        team = new Command();
+//        // Выключаем кнопку Старт таймер
+//        startTimerCommand_2.setDisable(true);
+//        // Получаем текущее время, запоминаем его в объект команды
+//        team.setTimeStampStartTheGame(timer.getTimeStamp());
+//        // Показываем время начала игры в соответствующем поле
+//        startTimeCommand_2.setText(timer.getTimeStringHHMMSS(team.getTimeStampStartTheGame()));
+//        // Делаем поля ввода и кнопки неактивными
+//        nameCommand_2.setEditable(false);
+//        gameCommand_2.setEditable(false);
+//        amountPeopleCommand_2.setEditable(false);
+//        fixFirstHourCommand_2.setDisable(true);
+//        clearAllFieldCommand_2.setDisable(true);
+//        // Запоминаем в объект команды данные с введенных полей
+//        team.setNameCommand(nameCommand_2.getText());
+//        team.setGameCommand(gameCommand_2.getText());
+//        team.setAmountPeopleCommand(amountPeopleCommand_2.getText());
+//    }
 
     @FXML
     public void updateTimerCommand() throws Exception {
@@ -236,34 +398,34 @@ public class CommandTwoController {
      *
      * @return
      */
-    private boolean checkTextFieldOfNullable() {
+    private boolean checkTextFieldOfNullable(TextField nameCommand, TextField gameCommand, TextField amountPeopleCommand) throws NoSuchFieldException {
         int cnt = 0;
 
-        if (nameCommand_2.getText().isEmpty()) {
-            nameCommand_2.setStyle(STYLE_BORDER_RED);
+        if (nameCommand.getText().isEmpty()) {
+            nameCommand.setStyle(STYLE_BORDER_RED);
             cnt++;
         } else {
-            nameCommand_2.setStyle(STYLE_BORDER_BASE);
+            nameCommand.setStyle(STYLE_BORDER_BASE);
         }
 
-        if (gameCommand_2.getText().isEmpty()) {
-            gameCommand_2.setStyle(STYLE_BORDER_RED);
+        if (gameCommand.getText().isEmpty()) {
+            gameCommand.setStyle(STYLE_BORDER_RED);
             cnt++;
         } else {
-            gameCommand_2.setStyle(STYLE_BORDER_BASE);
+            gameCommand.setStyle(STYLE_BORDER_BASE);
         }
 
-        if (amountPeopleCommand_2.getText().isEmpty()) {
-            amountPeopleCommand_2.setStyle(STYLE_BORDER_RED);
+        if (amountPeopleCommand.getText().isEmpty()) {
+            amountPeopleCommand.setStyle(STYLE_BORDER_RED);
             cnt++;
         } else {
-            amountPeopleCommand_2.setStyle(STYLE_BORDER_BASE);
+            amountPeopleCommand.setStyle(STYLE_BORDER_BASE);
         }
 
         try {
-            Long.valueOf(amountPeopleCommand_2.getText());
+            Long.valueOf(amountPeopleCommand.getText());
         } catch (NumberFormatException e) {
-            amountPeopleCommand_2.setStyle(STYLE_BORDER_RED);
+            amountPeopleCommand.setStyle(STYLE_BORDER_RED);
             cnt++;
         }
         return (cnt > 0) ? false : true;
@@ -282,5 +444,115 @@ public class CommandTwoController {
                 System.out.println("Кол-во минут записано в поле: " + String.valueOf(numberMinutes));
                 return String.valueOf(numberMinutes);
             }
+    }
+
+    /**
+     * Записываем все используемые поля и кнопки для данного класса-контроллера в листы,
+     * для более удобного их использования
+     */
+    public void fieldAndButtonToList() {
+        fieldNameCommand = Arrays.asList(
+                nameCommand_1,
+                nameCommand_2,
+                nameCommand_3,
+                nameCommand_4,
+                nameCommand_5,
+                nameCommand_6,
+                nameCommand_7,
+                nameCommand_8,
+                nameCommand_9,
+                nameCommand_10,
+                nameCommand_11,
+                nameCommand_12);
+
+        fieldGameCommand = Arrays.asList(
+                gameCommand_1,
+                gameCommand_2,
+                gameCommand_3,
+                gameCommand_4,
+                gameCommand_5,
+                gameCommand_6,
+                gameCommand_7,
+                gameCommand_8,
+                gameCommand_9,
+                gameCommand_10,
+                gameCommand_11,
+                gameCommand_12
+        );
+
+        fieldAmountPeopleCommand = Arrays.asList(
+        amountPeopleCommand_1,
+                amountPeopleCommand_2,
+                amountPeopleCommand_3,
+                amountPeopleCommand_4,
+                amountPeopleCommand_5,
+                amountPeopleCommand_6,
+                amountPeopleCommand_7,
+                amountPeopleCommand_8,
+                amountPeopleCommand_9,
+                amountPeopleCommand_10,
+                amountPeopleCommand_11,
+                amountPeopleCommand_12
+        );
+
+        checkBoxFixFirstHourCommand = Arrays.asList(
+        fixFirstHourCommand_1,
+                fixFirstHourCommand_2,
+                fixFirstHourCommand_3,
+                fixFirstHourCommand_4,
+                fixFirstHourCommand_5,
+                fixFirstHourCommand_6,
+                fixFirstHourCommand_7,
+                fixFirstHourCommand_8,
+                fixFirstHourCommand_9,
+                fixFirstHourCommand_10,
+                fixFirstHourCommand_11,
+                fixFirstHourCommand_12
+        );
+
+        fieldStartTimeCommand = Arrays.asList(
+                startTimeCommand_1,
+                startTimeCommand_2,
+                startTimeCommand_3,
+                startTimeCommand_4,
+                startTimeCommand_5,
+                startTimeCommand_6,
+                startTimeCommand_7,
+                startTimeCommand_8,
+                startTimeCommand_9,
+                startTimeCommand_10,
+                startTimeCommand_11,
+                startTimeCommand_12
+        );
+
+        buttonStartTimeCommand = Arrays.asList(
+                startTimerCommand_1,
+                startTimerCommand_2,
+                startTimerCommand_3,
+                startTimerCommand_4,
+                startTimerCommand_5,
+                startTimerCommand_6,
+                startTimerCommand_7,
+                startTimerCommand_8,
+                startTimerCommand_9,
+                startTimerCommand_10,
+                startTimerCommand_11,
+                startTimerCommand_12
+        );
+
+        buttonClearAllFieldCommand = Arrays.asList(
+                clearAllFieldCommand_1,
+                clearAllFieldCommand_2,
+                clearAllFieldCommand_3,
+                clearAllFieldCommand_4,
+                clearAllFieldCommand_5,
+                clearAllFieldCommand_6,
+                clearAllFieldCommand_7,
+                clearAllFieldCommand_8,
+                clearAllFieldCommand_9,
+                clearAllFieldCommand_10,
+                clearAllFieldCommand_11,
+                clearAllFieldCommand_12
+        );
     }
 }
