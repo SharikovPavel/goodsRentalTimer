@@ -31,10 +31,10 @@ public class CommandTwoController {
     List<TextField> fieldAmountPeopleCommand;
     List<CheckBox> checkBoxFixFirstHourCommand;
     List<TextField> fieldStartTimeCommand;
-    List<Button> buttonStartTimeCommand;
-    List<TextField> buttonUpdateTimerCommand;
-    List<TextField> buttonCurrentTimeCommand;
-    List<TextField> buttonStopTimerCommand;
+    List<Button> buttonStartTimerCommand;
+    List<Button> buttonUpdateTimerCommand;
+    List<TextField> fieldCurrentTimeCommand;
+    List<Button> buttonStopTimerCommand;
     List<TextField> fieldAllMinuteCommand;
     List<TextField> fieldTotalCostCommand;
     List<Button> buttonClearAllFieldCommand;
@@ -251,7 +251,7 @@ public class CommandTwoController {
             TextField gameCommand = fieldGameCommand.get(numberButton);
             TextField amountPeopleCommand = fieldAmountPeopleCommand.get(numberButton);
             TextField startTimeCommand = fieldStartTimeCommand.get(numberButton);
-            Button startTimerCommand = buttonStartTimeCommand.get(numberButton);
+            Button startTimerCommand = buttonStartTimerCommand.get(numberButton);
             CheckBox fixFirstHourCommand = checkBoxFixFirstHourCommand.get(numberButton);
             Button clearAllFieldCommand = buttonClearAllFieldCommand.get(numberButton);
 
@@ -302,6 +302,16 @@ public class CommandTwoController {
     public void startTimerCommand() {
         startTimerCommand_1.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
         startTimerCommand_2.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_3.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_4.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_5.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_6.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_7.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_8.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_9.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_10.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_11.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
+        startTimerCommand_12.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
     }
 
 //    @FXML
@@ -525,7 +535,7 @@ public class CommandTwoController {
                 startTimeCommand_12
         );
 
-        buttonStartTimeCommand = Arrays.asList(
+        buttonStartTimerCommand = Arrays.asList(
                 startTimerCommand_1,
                 startTimerCommand_2,
                 startTimerCommand_3,
@@ -553,6 +563,81 @@ public class CommandTwoController {
                 clearAllFieldCommand_10,
                 clearAllFieldCommand_11,
                 clearAllFieldCommand_12
+        );
+
+        buttonUpdateTimerCommand = Arrays.asList(
+        updateTimerCommand_1,
+                updateTimerCommand_2,
+                updateTimerCommand_3,
+                updateTimerCommand_4,
+                updateTimerCommand_5,
+                updateTimerCommand_6,
+                updateTimerCommand_7,
+                updateTimerCommand_8,
+                updateTimerCommand_9,
+                updateTimerCommand_10,
+                updateTimerCommand_11,
+                updateTimerCommand_12
+        );
+
+        buttonStopTimerCommand = Arrays.asList(
+                stopTimerCommand_1,
+                stopTimerCommand_2,
+                stopTimerCommand_3,
+                stopTimerCommand_4,
+                stopTimerCommand_5,
+                stopTimerCommand_6,
+                stopTimerCommand_7,
+                stopTimerCommand_8,
+                stopTimerCommand_9,
+                stopTimerCommand_10,
+                stopTimerCommand_11,
+                stopTimerCommand_12
+        );
+
+        fieldCurrentTimeCommand = Arrays.asList(
+                currentTimeCommand_1,
+                currentTimeCommand_2,
+                currentTimeCommand_3,
+                currentTimeCommand_4,
+                currentTimeCommand_5,
+                currentTimeCommand_6,
+                currentTimeCommand_7,
+                currentTimeCommand_8,
+                currentTimeCommand_9,
+                currentTimeCommand_10,
+                currentTimeCommand_11,
+                currentTimeCommand_12
+        );
+
+        fieldAllMinuteCommand = Arrays.asList(
+                allMinuteCommand_1,
+                allMinuteCommand_2,
+                allMinuteCommand_3,
+                allMinuteCommand_4,
+                allMinuteCommand_5,
+                allMinuteCommand_6,
+                allMinuteCommand_7,
+                allMinuteCommand_8,
+                allMinuteCommand_9,
+                allMinuteCommand_10,
+                allMinuteCommand_11,
+                allMinuteCommand_12
+        );
+
+        fieldTotalCostCommand = Arrays.asList(
+                totalCostCommand_1,
+                totalCostCommand_2,
+                totalCostCommand_3,
+                totalCostCommand_4,
+                totalCostCommand_5,
+                totalCostCommand_6,
+                totalCostCommand_7,
+                totalCostCommand_8,
+                totalCostCommand_9,
+                totalCostCommand_10,
+                totalCostCommand_11,
+                totalCostCommand_12
         );
     }
 }

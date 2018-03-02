@@ -15,7 +15,7 @@
          <content>
           <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="2096.0" prefWidth="780.0">
                <children>
-                  <VBox fx:id="vbox" prefHeight="2012.0" prefWidth="789.0">
+                  <VBox fx:id="vbox" layoutY="-230.0" prefHeight="2012.0" prefWidth="789.0">
                      <children>
                         <Pane fx:id="pane_1" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
@@ -145,7 +145,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="startTimerCommand_3" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_3" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTimerCommand" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -154,7 +154,7 @@
                         </Pane>
                         <Pane fx:id="pane_4" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button fx:id="startTimerCommand_4" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_4" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTimerCommand" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -199,7 +199,7 @@
                         </Pane>
                         <Pane fx:id="pane_5" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button fx:id="startTimerCommand_5" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_5" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTimerCommand" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -244,7 +244,7 @@
                         </Pane>
                         <Pane fx:id="pane_6" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button fx:id="startTimerCommand_6" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_6" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTimerCommand" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -289,7 +289,7 @@
                         </Pane>
                         <Pane fx:id="pane_7" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_7" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTimerCommand" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -334,7 +334,7 @@
                         </Pane>
                         <Pane fx:id="pane_8" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_8" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTimerCommand" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -379,7 +379,7 @@
                         </Pane>
                         <Pane fx:id="pane_9" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_9" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTimerCommand" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -424,7 +424,7 @@
                         </Pane>
                         <Pane fx:id="pane_10" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_10" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -469,7 +469,7 @@
                         </Pane>
                         <Pane fx:id="pane_11" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_11" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -514,7 +514,7 @@
                         </Pane>
                         <Pane fx:id="pane_12" prefHeight="167.0" prefWidth="799.0" style="-fx-border-color: #78B3ED;">
                            <children>
-                              <Button layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
+                              <Button fx:id="startTimerCommand_12" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Старт таймер">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
