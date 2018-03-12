@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -295,7 +296,7 @@ public class CommandTwoController {
     };
 
     /**
-     * Метод который является активным для всех кнопок одинакового действия.
+     * Метод который является активным для всех кнопок "Старт таймер" одинакового действия.
      * На каждую кнопку навешивается дефолтный слушатель событий, реагирующий на клик (видно в данном методе)
      */
     @FXML
@@ -314,39 +315,66 @@ public class CommandTwoController {
         startTimerCommand_12.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, startTimerButtonEvent);
     }
 
+    /**
+     * Слушатель действий (событий) мыши, дефолтный. Предназначен для кнопки "Обновить таймер"
+     */
+    final EventHandler<javafx.scene.input.MouseEvent> updateTimerCommandButtonEvent = new EventHandler<javafx.scene.input.MouseEvent>(){
+        @Override
+        public void handle(MouseEvent event) {
+            Long currentTime = 0L;
+
+            // Определяем связанные кнопки, соответствующие нажатой в данный момент
+            int numberButton = Integer.valueOf(event.getSource().toString().substring(0, event.getSource().toString().indexOf(",")).split("_")[1]) - 1;
+            TextField currentTimeCommand = fieldCurrentTimeCommand.get(numberButton);
+            Button startTimerCommand = buttonStartTimerCommand.get(numberButton);
+
+            // Проверяем, что таймер вообще запущен и есть что обновлять
+            if (!startTimerCommand.isDisabled()) {
+                return;
+            }
+
+            //TODO: РАЗОБРАТЬСЯ С РАБОТОЙ КЛАССА Command (Объект Team), кажется он каждый раз перезаписываться будет и показывать неверные данные
+            //TODO: Записывать время старта в commandInfo, а потом его в трае доставать оттуда
+            // Вычитаем из только что полученного timestamp, timestamp записанный в начале игры для конкретной команды
+            try {
+                currentTime = timer.getTimeHHMMSS(timer.getTimeStamp()) - timer.getTimeHHMMSS(team.getTimeStampStartTheGame());
+            } catch (Exception e) {
+                e.getCause().getMessage();
+            }
+
+            // Выводим прошедшее время от старта игры в специальное поле на панели
+            currentTimeCommand.setText(roundingNumber((double) currentTime / MINUTES));
+        }
+    };
+
+    /**
+     * Метод который является активным для всех кнопок "Обновить таймер" одинакового действия.
+     * На каждую кнопку навешивается дефолтный слушатель событий, реагирующий на клик (видно в данном методе)
+     */
+    @FXML
+    public void updateTimerCommand() {
+        updateTimerCommand_1.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_2.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_3.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_4.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_5.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_6.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_7.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_8.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_9.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_10.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_11.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+        updateTimerCommand_12.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, updateTimerCommandButtonEvent);
+    }
+
 //    @FXML
-//    public void startTimerCommand() throws Exception {
-//        if (!checkTextFieldOfNullable()) {
+//    public void updateTimerCommand() throws Exception {
+//        if (!startTimerCommand_2.isDisabled()) {
 //            return;
 //        }
-//        // Создаем объект команды
-//        team = new Command();
-//        // Выключаем кнопку Старт таймер
-//        startTimerCommand_2.setDisable(true);
-//        // Получаем текущее время, запоминаем его в объект команды
-//        team.setTimeStampStartTheGame(timer.getTimeStamp());
-//        // Показываем время начала игры в соответствующем поле
-//        startTimeCommand_2.setText(timer.getTimeStringHHMMSS(team.getTimeStampStartTheGame()));
-//        // Делаем поля ввода и кнопки неактивными
-//        nameCommand_2.setEditable(false);
-//        gameCommand_2.setEditable(false);
-//        amountPeopleCommand_2.setEditable(false);
-//        fixFirstHourCommand_2.setDisable(true);
-//        clearAllFieldCommand_2.setDisable(true);
-//        // Запоминаем в объект команды данные с введенных полей
-//        team.setNameCommand(nameCommand_2.getText());
-//        team.setGameCommand(gameCommand_2.getText());
-//        team.setAmountPeopleCommand(amountPeopleCommand_2.getText());
+//        Long currentTime = timer.getTimeHHMMSS(timer.getTimeStamp()) - timer.getTimeHHMMSS(team.getTimeStampStartTheGame());
+//        currentTimeCommand_2.setText(roundingNumber((double) currentTime / MINUTES));
 //    }
-
-    @FXML
-    public void updateTimerCommand() throws Exception {
-        if (!startTimerCommand_2.isDisabled()) {
-            return;
-        }
-        Long currentTime = timer.getTimeHHMMSS(timer.getTimeStamp()) - timer.getTimeHHMMSS(team.getTimeStampStartTheGame());
-        currentTimeCommand_2.setText(roundingNumber((double) currentTime / MINUTES));
-    }
 
     @FXML
     public void stopTimerCommand() throws Exception {
@@ -444,6 +472,7 @@ public class CommandTwoController {
     private String roundingNumber(Double number) {
         Double numberMinutes = Double.valueOf(number.toString().split("\\.")[0]);
         String stringNumberAfterDot = number.toString().split("\\.")[1];
+        //TODO: проверить, кажется обрезается не верно, не всегда есть 2 или три символа или что-то такое
             String stringNumberAfterDotLength = stringNumberAfterDot.substring(0,2);
             if (Double.valueOf(stringNumberAfterDotLength) > 50) {
                 System.out.println("Кол-во минут прошло: " + number);
@@ -566,7 +595,7 @@ public class CommandTwoController {
         );
 
         buttonUpdateTimerCommand = Arrays.asList(
-        updateTimerCommand_1,
+                updateTimerCommand_1,
                 updateTimerCommand_2,
                 updateTimerCommand_3,
                 updateTimerCommand_4,

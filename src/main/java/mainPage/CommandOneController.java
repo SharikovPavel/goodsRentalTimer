@@ -106,14 +106,14 @@ public class CommandOneController extends CommandTwoController{
 //        team.setAmountPeopleCommand(amountPeopleCommand_1.getText());
 //    }
 
-    @FXML
-    public void updateTimerCommand() throws Exception {
-        if (!startTimerCommand_1.isDisabled()) {
-            return;
-        }
-        Long currentTime = timer.getTimeHHMMSS(timer.getTimeStamp()) - timer.getTimeHHMMSS(team.getTimeStampStartTheGame());
-        currentTimeCommand_1.setText(roundingNumber((double) currentTime / MINUTES));
-    }
+//    @FXML
+//    public void updateTimerCommand() throws Exception {
+//        if (!startTimerCommand_1.isDisabled()) {
+//            return;
+//        }
+//        Long currentTime = timer.getTimeHHMMSS(timer.getTimeStamp()) - timer.getTimeHHMMSS(team.getTimeStampStartTheGame());
+//        currentTimeCommand_1.setText(roundingNumber((double) currentTime / MINUTES));
+//    }
 
     @FXML
     public void stopTimerCommand() throws Exception {
@@ -135,6 +135,7 @@ public class CommandOneController extends CommandTwoController{
 
     @FXML
     public void clearAllFieldCommand() {
+        //TODO: Убирать обводку вокруг полей, если она есть
         clearField();
         onAllFieldAndButton();
         //Чистим объект класса
